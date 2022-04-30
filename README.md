@@ -46,7 +46,7 @@ plt.xlabel("grayscale value")
 plt.ylabel("pixel count")
 plt.stem(hist)
 plt.show()
-```python
+```
 # Display the histogram of gray scale image and any one channel histogram from color image
 ```python
 hist=cv2.calcHist([color_img],[0],None,[256],[0,256])
@@ -58,12 +58,17 @@ plt.show()
 ```
 # Write the code to perform histogram equalization of the image. 
 ```python
-equ=cv2.equalizeHist(cv2.imread('img1.jpg',0))
-equ=cv2.cvtColor(equ,cv2.COLOR_BGR2RGB)
-plt.title("Equalised Image")
-plt.axis("off")
-plt.imshow(equ)
-plt.show()
+import cv2
+Gray_image=cv2.imread('gray.jpg',0)
+equalize=cv2.equalizeHist(Gray_image)
+#resizing image 
+Gray_image= cv2.resize(Gray_image, (270,190))
+equalize= cv2.resize(equalize, (270,190))
+#output
+cv2.imshow('GRAY IMAGE',Gray_image)
+cv2.imshow('EQUALIZED IMAGE',equalize)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 ```
 ## Output:
